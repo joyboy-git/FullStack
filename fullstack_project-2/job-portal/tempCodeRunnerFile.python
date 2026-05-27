@@ -1,0 +1,13 @@
+n=int(input())
+val=n
+arr=[]
+while val>0:
+    lengths=list(map(int,input().split()))
+    arr.append(lengths)
+    val-=1
+    print(arr)
+for i in arr:
+    if i[0]==i[1]==i[2]==i[3]:
+        print(True)
+    else:
+        print(False)
