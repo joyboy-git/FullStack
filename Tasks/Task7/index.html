@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Customer Feedback Form</h2>
+
+<form id="feedbackForm">
+    <label>Name:</label>
+    <input type="text" id="name" onkeyup="validateName()" required>
+
+    <span id="nameError"></span>
+
+    <label>Email:</label>
+    <input type="email" id="email" onkeyup="validateEmail()" required>
+
+    <span id="emailError"></span>
+
+    <label>Feedback:</label>
+    <textarea id="feedback" required></textarea>
+
+    <button type="button" onclick="submitForm()">Submit</button>
+</form>
+
+<script src="script.js"></script>
+
+</body>
+</html>

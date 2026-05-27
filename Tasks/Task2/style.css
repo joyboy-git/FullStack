@@ -1,0 +1,28 @@
+body {
+    font-family: Arial;
+    padding: 20px;
+}
+
+h2 {
+    color: darkblue;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: lightgray;
+}
+
+button {
+    padding: 5px 10px;
+    margin-left: 10px;
+}
