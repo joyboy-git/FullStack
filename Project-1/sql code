@@ -1,0 +1,46 @@
+drop database if exists ecommerce_db ;
+CREATE DATABASE ecommerce_db;
+USE ecommerce_db;
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  phone VARCHAR(20),
+  password VARCHAR(255) NOT NULL,
+  latitude DECIMAL(10,8),
+  longitude DECIMAL(11,8),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  category ENUM('mobile','laptop'),
+  price DECIMAL(10,2),
+  specs TEXT,
+  image VARCHAR(500)
+);
+
+CREATE TABLE carts (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  product_id INT,
+  quantity INT DEFAULT 1,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+);
+INSERT INTO products (name, category, price, specs, image) VALUES
+('iPhone 15 Pro', 'mobile', 84999, '6.1-inch, A17 Pro chip, 128GB', 'images/iphone 15 pro.jpg'),
+('Samsung Galaxy S24', 'mobile', 74999, '6.2-inch, Snapdragon 8 Gen 3, 256GB', 'images/samsung.jpg'),
+('Google Pixel 8 Pro', 'mobile', 69999, '6.7-inch, Tensor G3, 128GB', 'images/google-pixel-8-Pro.webp'),
+('OnePlus 12', 'mobile', 64999, '6.82-inch, Snapdragon 8 Gen 3, 256GB', 'images/oneplus 12.jpg'),
+('MacBook Pro 16"', 'laptop', 199999, 'M3 Pro chip, 16GB RAM, 512GB SSD', 'images/macbook.jpg'),
+('Dell XPS 15', 'laptop', 159999, 'Intel i7, 16GB RAM, 1TB SSD', 'images/dell xps 15.jpg'),
+('HP Spectre x360', 'laptop', 134999, 'Intel i7, 16GB RAM, 512GB SSD', 'images/hp 360.jpg'),
+('Lenovo ThinkPad X1', 'laptop', 149999, 'Intel i7, 32GB RAM, 1TB SSD', 'images/x1.webp'),
+('ASUS ROG Zephyrus', 'laptop', 189999, 'AMD Ryzen 9, RTX 4080, 32GB RAM', 'images/rog zephur.jpg'),
+('iPhone 14', 'mobile', 67999, '6.1-inch, A16 Bionic chip, 128GB', 'images/14 pro max.webp'),
+('MacBook Air M2', 'laptop', 99999, 'M2 chip, 8GB RAM, 256GB SSD', 'images/m2 air.webp'),
+('Xiaomi 13 Pro', 'mobile', 54999, '6.73-inch, Snapdragon 8 Gen 2, 256GB', 'images/mi 13 pro.webp');
+
+
